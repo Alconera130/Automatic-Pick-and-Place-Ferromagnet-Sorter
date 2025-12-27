@@ -4,3 +4,4 @@
 .vscode/launch.json
 .vscode/ipch
 lib/Object_Detection_inferencing/
+test/
