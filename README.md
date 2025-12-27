@@ -32,4 +32,4 @@ The robot utilizes an Edge Impulse object detection model, though it can be modi
 
 ## Some Things to Note
 
-This project is purely alpha, as further changes and improvements will be frequently done.
+This project is in its alpha stage, as further changes and improvements will be frequently done.
