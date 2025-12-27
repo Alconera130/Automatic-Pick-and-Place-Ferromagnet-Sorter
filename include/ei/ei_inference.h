@@ -1,0 +1,7 @@
+#pragma once
+
+#define EI_CAMERA_RAW_FRAME_BUFFER_COLS 320 
+#define EI_CAMERA_RAW_FRAME_BUFFER_ROWS 240 
+#define EI_CAMERA_FRAME_BYTE_SIZE 3
+
+void runInference();
