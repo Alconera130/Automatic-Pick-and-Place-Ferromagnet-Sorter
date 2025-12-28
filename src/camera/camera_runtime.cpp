@@ -129,5 +129,5 @@ void startWebServer() {
     server.on("/capture", HTTP_GET, captureHandler);
 
     server.begin();
-    Serial.println("Web server started");
+    Serial.println("Web server started at http://" + WiFi.localIP().toString());
 }

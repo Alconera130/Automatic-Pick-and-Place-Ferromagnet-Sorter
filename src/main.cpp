@@ -37,7 +37,7 @@ int x_ref=0, y_ref=0;
 float robot_offset_x=30, robot_offset_y=55;
 float confidence=0.6;
 
-uint8_t snapshot_buf[320*240*3];
+uint8_t snapshot_buf[EI_CAMERA_RAW_FRAME_BUFFER_COLS*EI_CAMERA_RAW_FRAME_BUFFER_ROWS*EI_CAMERA_FRAME_BYTE_SIZE];
 
 camera_config_t camera_config = {
     .pin_pwdn = PWDN_GPIO_NUM,

@@ -5,4 +5,5 @@
 .vscode/ipch
 lib/*
 !lib/
+!lib/.gitkeep
 test/
