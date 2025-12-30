@@ -50,3 +50,6 @@ extern camera_config_t camera_config;
 extern uint8_t snapshot_buf[];
 
 extern unsigned long lastInferenceTime;
+
+#define EI_CLASSIFIER_TFLITE_ENABLE_CUDA 0
+#define EI_CLASSIFIER_DEBUG 0

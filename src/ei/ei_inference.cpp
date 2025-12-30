@@ -6,9 +6,6 @@
 #include "vision/object_tracker.h"
 #include <vector>
 
-#define EI_CLASSIFIER_TFLITE_ENABLE_CUDA 0
-#define EI_CLASSIFIER_DEBUG 0
-
 static int ei_camera_get_data(size_t offset, size_t length, float *out_ptr) {
 	// we already have a RGB888 buffer, so recalculate offset into pixel index
 	size_t pixel_ix = offset * 3;

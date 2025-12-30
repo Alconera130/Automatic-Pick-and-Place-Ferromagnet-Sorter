@@ -19,7 +19,7 @@ const char index_html[] PROGMEM = R"rawliteral(
     </style>
     </head>
     <body>
-        <h2>ESP32 Camera Stream</h2>
+        <h2>ESP32S3 Camera Stream</h2>
         <img id="stream" src="/stream" alt="stream">
         <div>
             <button id="captureBtn">Download Current Frame</button>

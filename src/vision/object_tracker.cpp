@@ -6,9 +6,6 @@
 #include "robot/kinematics.h"
 #include <vector>
 
-float robotX = 0.0;
-float robotY = 0.0;
-
 DetectedObject findClosestToOrigin(const std::vector<DetectedObject>& objects) {
     if (objects.empty()) return DetectedObject();
 

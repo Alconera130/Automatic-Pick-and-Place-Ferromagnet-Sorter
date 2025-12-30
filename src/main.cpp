@@ -36,6 +36,8 @@ float mm_per_px=0.9;
 int x_ref=0, y_ref=0;
 float robot_offset_x=30, robot_offset_y=55;
 float confidence=0.6;
+float robotX = 0.0;
+float robotY = 0.0;
 
 uint8_t snapshot_buf[EI_CAMERA_RAW_FRAME_BUFFER_COLS*EI_CAMERA_RAW_FRAME_BUFFER_ROWS*EI_CAMERA_FRAME_BYTE_SIZE];
 
