@@ -11,7 +11,7 @@ A modular and not-so-intuitive robot that allows automation of sorting ferromagn
 
 An ESP32S3 with a camera installed is utilized for the robot. Its camera (facing top-down, with the detection area ligned up to the top-left corner of the camera output) will detect the object using the Edge Impulse model, and then it would calculate its position relative to the origin of the camera (top-left corner.) Once that's done, it will then convert the pixel coordinates to real world coordinates in which you can calibrate. Then, the robot will initiate its pick-and-place sequence, which picks up the object and places it down on the magnet detection station. Finally, hall effect sensors will detect if the object is magnetic or not which a servo motor will then push to the respective bin.
 
-## How to Calibrate and Setup the Robot?
+## How to Calibrate and Setup the Robot
 
 1. Connect the ESP32S3's USB-Serial to your device with a Type-C cable
 2. Open up a Serial Monitor with its speed set to 115200

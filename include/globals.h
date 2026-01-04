@@ -13,6 +13,8 @@ extern WebServer server;
 extern Servo servoA, servoB, servoC, servoD, servoE;
 extern int posA, posB, posC, posD, posE;
 extern int offsetA, offsetB, offsetC, offsetD;
+extern int gripperAngle;
+
 extern int servoDuration;
 extern bool enableInterpolate;
 extern char* servoSequence;

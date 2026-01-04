@@ -34,7 +34,7 @@ void pickAndPlace(float x, float y) {
     delay(300);
     moveto(x, y, -20);  // DESCEND TO OBJECT
     delay(300);
-    moveServoSmooth(servoD, posD, 70);  // CLOSE GRIPPER
+    moveServoSmooth(servoD, posD, gripperAngle);  // CLOSE GRIPPER
     delay(300);
     moveto(x, y, 40);  // ELEVATE OBJECT
     delay(300);

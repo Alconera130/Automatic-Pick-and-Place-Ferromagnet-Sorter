@@ -16,6 +16,7 @@ Servo servoA, servoB, servoC, servoD, servoE;
 
 int posA=91, posB=91, posC=31, posD=91, posE=90;
 int offsetA=-5, offsetB=5, offsetC=39, offsetD=0;
+int gripperAngle = 70;
 
 int servoDuration=1000;
 bool enableInterpolate=true;

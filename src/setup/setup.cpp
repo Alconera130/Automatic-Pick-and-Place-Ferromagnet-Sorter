@@ -46,6 +46,7 @@ void variableSetup() {
         robot_offset_y = askFloat("robot_offset_y (mm): default -> 55");
         DESTINATION_X = askFloat("DESTINATION_X (drop off X mm): default -> -50");
         DESTINATION_Y = askFloat("DESTINATION_Y (drop off Y mm): default -> 10");
+        gripperAngle = askInt("gripperAngle (angle to close gripper): default -> 75");
         servoDuration = askInt("servoDuration (servo movement speed): default -> 1000");
         enableInterpolate = askBool("enableInterpolate (arm servos move at the same time): default -> true");
         confidence = askFloat("confidence (detection threshold 0.0 - 1.0): default -> 0.6");
