@@ -60,6 +60,7 @@ void variableSetup() {
     Serial.printf("robot_offset_y = %.1f mm\n", robot_offset_y);
     Serial.printf("DESTINATION_X = %.1f mm\n", DESTINATION_X);
     Serial.printf("DESTINATION_Y = %.1f mm\n", DESTINATION_Y);
+    Serial.printf("gripperAngle = %d\n", gripperAngle); 
     Serial.printf("servoDuration = %d\n", servoDuration);
     Serial.printf("enableInterpolate = %s\n", enableInterpolate ? "true" : "false");
     Serial.printf("confidence = %.2f\n", confidence);
