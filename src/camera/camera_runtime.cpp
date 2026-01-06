@@ -78,19 +78,32 @@ void streamHandler() {
     client.println("Cache-Control: no-cache"); 
     client.println(); // BLOCKING LOOP: RUN UNTIL BROWSER DISCONNECTS
 
+    unsigned long lastMillis = millis();
+
     while (client.connected()) {
-        camera_fb_t *fb = esp_camera_fb_get();
-        if (!fb) { Serial.println("Frame failed"); continue; }
+        if (millis() - lastMillis >= 100) { // Stream at ~10 fps
+            lastMillis = millis();
 
-        client.print("--frame\r\n");
-        client.print("Content-Type: image/jpeg\r\n");
-        client.printf("Content-Length: %u\r\n\r\n", fb->len);
-        client.write(fb->buf, fb->len); client.print("\r\n");
+            camera_fb_t *fb = esp_camera_fb_get();
+            if (!fb) {
+                Serial.println("Camera capture failed");
+                break;
+            }
 
-        esp_camera_fb_return(fb);
+            // Send MJPEG frame headers
+            client.println("--frame");
+            client.println("Content-Type: image/jpeg");
+            client.printf("Content-Length: %u\r\n", fb->len);
+            client.println(); // blank line between headers and image data
+
+            // Send the JPEG image data
+            client.write(fb->buf, fb->len);
+            client.println(); // CRLF after image data
+
+            esp_camera_fb_return(fb);
+        }
 
         server.handleClient(); // Keep server responsive
-        delay(50);
     }
     
     Serial.println("Client disconnected (blocking stream ended)");

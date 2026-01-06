@@ -2,7 +2,7 @@
 #include "globals.h"
 #include "robot/servos.h"
 
-void moveServoSmooth(Servo &servo, int &currentPos, int targetPos, bool skip) {
+void moveServoSmooth(Servo &servo, int &currentPos, int targetPos, int duration, bool skip) {
     if (!skip) targetPos = constrain(targetPos, 0, 180);
 
     int step = (currentPos < targetPos) ? 1 : -1;
@@ -10,7 +10,7 @@ void moveServoSmooth(Servo &servo, int &currentPos, int targetPos, bool skip) {
     while (currentPos != targetPos) {
         currentPos += step;
         servo.write(currentPos);
-        delay(10);
+        delay(duration / abs(targetPos - currentPos));
     }
 }
 
@@ -53,25 +53,21 @@ void moveall(int targetA, int targetB, int targetC, int targetD, bool interpolat
     } else {
         for (size_t i = 0; i < strlen(order); i++) {
             char servoID = order[i];
-            for (int i = 0; i <= steps; i++) {
-                switch (servoID) {
-                    case '1':
-                        moveServoSmooth(servoA, posA, targetA);
+            switch (servoID) {
+                case '1':
+                    moveServoSmooth(servoA, posA, targetA);
+                    break;
+                case '2':
+                    moveServoSmooth(servoB, posB, targetB);
                         break;
-                    case '2':
-                        moveServoSmooth(servoB, posB, targetB);
-                        break;
-                    case '3':
-                        moveServoSmooth(servoC, posC, targetC);
-                        break;
-                    case '4':
-                        moveServoSmooth(servoD, posD, targetD);
-                        break;
-                    default:
-                        break;
-                }
-
-                delay((int)stepDelay);
+                case '3':
+                    moveServoSmooth(servoC, posC, targetC);
+                    break;
+                case '4':
+                    moveServoSmooth(servoD, posD, targetD);                        break;
+                    break;
+                default:
+                    break;
             }
         }
     }
