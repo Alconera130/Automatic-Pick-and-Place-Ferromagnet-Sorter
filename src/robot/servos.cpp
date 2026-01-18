@@ -2,7 +2,7 @@
 #include "globals.h"
 #include "robot/servos.h"
 
-void moveServoSmooth(Servo &servo, int &currentPos, int targetPos, int duration, bool skip) {
+void moveServoSmooth(Servo &servo, int &currentPos, int targetPos, bool skip) {
     if (!skip) targetPos = constrain(targetPos, 0, 180);
 
     int step = (currentPos < targetPos) ? 1 : -1;
@@ -10,7 +10,7 @@ void moveServoSmooth(Servo &servo, int &currentPos, int targetPos, int duration,
     while (currentPos != targetPos) {
         currentPos += step;
         servo.write(currentPos);
-        delay(duration / abs(targetPos - currentPos));
+        delay(10);
     }
 }
 
